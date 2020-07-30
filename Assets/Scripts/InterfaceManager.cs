@@ -185,9 +185,9 @@ public class InterfaceManager : IInterfaceManager
     }
 
     // Update is called once per frame
-    float deltaTime = 0.0f;
-    int updateRate = 10;
-    int frame = 0;
+    // float deltaTime = 0.0f;
+    // int updateRate = 10;
+    // int frame = 0;
     void Update()
     {
 		// deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
@@ -353,7 +353,7 @@ public class InterfaceManager : IInterfaceManager
     }
 
     // TODO: deal with error states if conditions not met
-    public async void LaunchExperiment() {
+    public void LaunchExperiment() {
         // launch scene with exp, 
         // instantiate experiment,
         // call start function
@@ -370,7 +370,6 @@ public class InterfaceManager : IInterfaceManager
             
             // create path for current participant/session
             fileManager.CreateSession();
-
 
             Do(new EventBase<string>(SceneManager.LoadScene,(string)GetSetting("experimentScene")));
             Do(new EventBase(() => {

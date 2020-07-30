@@ -158,7 +158,7 @@ public class ElememInterface : IHostPC
             result.AsyncWaitHandle.WaitOne(messageTimeout);
             elemem.EndConnect(result);
         }
-        catch(SocketException e) {    // TODO: set hostpc state on task side
+        catch(SocketException) {    // TODO: set hostpc state on task side
             im.Do(new EventBase<string>(im.SetHostPCStatus, "ERROR")); 
             throw new OperationCanceledException("Failed to Connect");
         }

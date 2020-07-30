@@ -9,13 +9,13 @@ public class ErrorNotification {
         UnityEngine.Debug.Log(e);
 
         // TODO: pre processor on is editor
+#if UNITY_EDITOR
         throw e;
-
+#else
         if(mainThread == null) {
-
-            throw e;
-           // throw new ApplicationException("Main thread not registered to event notifier.");
+           throw new ApplicationException("Main thread not registered to error notifier.");
         }
+#endif
 
         mainThread.Do(new EventBase<Exception>(mainThread.Notify, e));
     }

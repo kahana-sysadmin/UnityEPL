@@ -1,0 +1,11 @@
+{
+    "isTest": false,
+    "launcherScene": "Startup",
+    "eventsPerFrame": 10,
+    "frameRate": 300,
+    "vSync": 1,
+    "syncBoxTestLength": 5000,
+    "ip": "127.0.0.1",
+    "port": 8889,
+    "comments": "Add resource and data path parameters"
+}

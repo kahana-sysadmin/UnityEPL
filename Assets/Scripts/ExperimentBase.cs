@@ -245,7 +245,7 @@ public abstract class ExperimentBase : EventLoop {
         key = key.ToLower();
         if(down) {
             // enter only numbers
-            if(Regex.IsMatch(key, @"\d$")) {
+            if(Regex.IsMatch(key, @"(?:Mouse)\d$")) {
                 key = key[key.Length-1].ToString(); // Unity gives numbers as Alpha# or Keypad#
                 if(state.distractorAnswer.Length < 3) {
                     state.distractorAnswer = state.distractorAnswer + key;
@@ -276,7 +276,7 @@ public abstract class ExperimentBase : EventLoop {
                         + state.distractorProblem[2].ToString() + " = ", state.distractorAnswer);
                 }
 
-                Do(new EventBase(Run));
+                DoIn(new EventBase(Run), 500); // wait for end of beep before continuing
                 manager.Do(new EventBase(manager.ClearText));
                 state.distractorProblem = "";
                 state.distractorAnswer = "";
